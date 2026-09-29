@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercises</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .section { margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        input { margin: 5px; padding: 5px; }
+        button { padding: 5px 15px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Exercises</h1>
+
+    <!-- Exercise 2 & 2.1 -->
+    <div class="section">
+        <h3>Ex 2 & 2.1: Multiples of a or b below n</h3>
+        <label>a: <input type="number" id="ex2_a" value="3"></label>
+        <label>b: <input type="number" id="ex2_b" value="5"></label>
+        <label>n: <input type="number" id="ex2_n" value="1000"></label>
+        <button onclick="runEx2()">Calculate</button>
+        <p>Result: <span id="res2">-</span></p>
+    </div>
+
+    <!-- Exercise 3 & 3.1 -->
+    <div class="section">
+        <h3>Ex 3 & 3.1: Multiples of a or b in List l</h3>
+        <label>a: <input type="number" id="ex3_a" value="3"></label>
+        <label>b: <input type="number" id="ex3_b" value="5"></label>
+        <label>List l (comma/space separated): <input type="text" id="ex3_l" value="3, 5, 6, 9, 10, 12, 15"></label>
+        <button onclick="runEx3()">Calculate</button>
+        <p>Result: <span id="res3">-</span></p>
+    </div>
+
+    <!-- Exercise 4/5 & 5.1 -->
+    <div class="section">
+        <h3>Ex 5 & 5.1: Multiples of factors in List f in List m</h3>
+        <label>List f (factors): <input type="text" id="ex5_f" value="3, 5"></label>
+        <label>List m (numbers): <input type="text" id="ex5_m" value="1, 2, 3, 4, 5, 6, 7, 8, 9, 10"></label>
+        <button onclick="runEx5()">Calculate</button>
+        <p>Result: <span id="res5">-</span></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
