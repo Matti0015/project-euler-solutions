@@ -1,19 +1,28 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Login Page</title>
 </head>
 <body>
+    <h2>Login Form</h2>
     <input id="username" placeholder="Username" /><br><br>
     <input id="password" type="password" placeholder="Password" /><br><br>
-    <button id="btn">login</button>
+    <button id="btn">Login</button>
+
+    <!-- Message Dikhane Ke Liye -->
+    <h3 id="message" style="margin-top: 15px;"></h3>
 
     <script>
         document.getElementById("btn").addEventListener("click", () => {
+            const messageElement = document.getElementById("message");
+            messageElement.style.color = "black";
+            messageElement.innerText = "Loading...";
+
             const data = {
-                username: document.getElementById("username").value,
-                password: document.getElementById("password").value,
+                username: document.getElementById("username").value.trim(),
+                password: document.getElementById("password").value.trim(),
             };
 
             fetch("https://dummyjson.com/auth/login", {
@@ -24,8 +33,21 @@
                 body: JSON.stringify(data),
             })
             .then((res) => res.json())
-            .then((json) => console.log(json))
-            .catch((err) => console.log(err.message));
+            .then((json) => {
+                console.log(json);
+                if (json.token) {
+                    messageElement.style.color = "green";
+                    messageElement.innerText = "Login Successful! Welcome " + json.firstName;
+                } else {
+                    messageElement.style.color = "red";
+                    messageElement.innerText = "Login Failed: " + (json.message || "Invalid credentials");
+                }
+            })
+            .catch((err) => {
+                console.log(err.message);
+                messageElement.style.color = "red";
+                messageElement.innerText = "Error: " + err.message;
+            });
         });
     </script>
 </body>
